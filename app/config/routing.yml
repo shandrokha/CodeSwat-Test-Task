@@ -1,0 +1,7 @@
+code_swat_shop:
+    resource: "@CodeSwatShopBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

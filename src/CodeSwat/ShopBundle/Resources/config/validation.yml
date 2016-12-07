@@ -1,0 +1,14 @@
+CodeSwat\ShopBundle\Entity\Product:
+    getters:
+        name:
+            - NotBlank:
+                message: The product name is missing
+        category:
+            - NotBlank:
+                message: The category is missing
+        price:
+            - NotBlank:
+                message: The price is missing
+            - Type:
+                type: numeric
+                message: The price has to be a real number

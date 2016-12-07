@@ -1,0 +1,19 @@
+code_swat_shop_product_index:
+    path:     /products
+    defaults: { _controller: CodeSwatShopBundle:Products:index }
+    methods: [GET]
+
+code_swat_shop_product_new:
+    path:     /products
+    defaults: { _controller: CodeSwatShopBundle:Products:new }
+    methods: [POST]
+
+code_swat_shop_product_delete:
+    path:     /products/{id}
+    defaults: { _controller: CodeSwatShopBundle:Products:delete }
+    methods: [DELETE]
+
+code_swat_shop_product_json:
+    path:     /products/json
+    defaults: { _controller: CodeSwatShopBundle:Products:json }
+    methods: [GET]

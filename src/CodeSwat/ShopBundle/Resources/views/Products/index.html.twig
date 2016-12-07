@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>{% block title %}CodeSwat test task{% endblock %}</title>
+	{% block stylesheets %}
+		<link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap/bootstrap.min.css')}}" />
+		<link rel="stylesheet" type="text/css" href="{{asset('css/styles.css')}}" />
+	{% endblock %}
+	{% block javascripts %}
+		<script type="text/javascript" src="{{asset('js/jquery/jquery-3.1.1.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('js/products.js')}}"></script>
+	{% endblock %}
+	<link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+<body>
+	<h4>Products</h4>
+	<table id="products-table" class="table table-bordered table-hover"
+		data-json-url="{{ json_product_url }}"
+		data-delete-url="{{ delete_product_url }}">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Category</th>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Price $</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr id="product-proto-tr" data-id="" class="hidden">
+				<td align="center" data-name="id"></td>
+				<td data-name="category_name"></td>
+				<td data-name="name"></td>
+				<td data-name="description"></td>
+				<td align="right" data-name="price"></td>
+				<td align="center">
+					<input type="button" class="btn btn-xs btn-danger" value="Delete" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<p align="center"><img id="loading-products" src="{{asset('images/loading.gif')}}" width="50" height="50"></p>
+	<input type="button" id="new-product-button" value="Add new product" class="btn btn-sm" />
+	<div id="new-product-form" class="collapse" style="height: 0;">
+		<table class="table table-bordered">
+			<tbody>
+				<tr>
+					<th>Name</th>
+					<td width="100%"><input type="text" data-new-product data-name="name" size="30"></td>
+				</tr>
+				<tr>
+					<th>Category</th>
+					<td><select data-new-product data-name="category_id">
+							{% for category in categories %}
+								<option value="{{ category.id }}">{{ category.name }}</option>
+							{% endfor %}
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td><textarea data-new-product data-name="description" cols="30" rows="3"></textarea></td>
+				</tr>
+				<tr>
+					<th>Price</th>
+					<td><input type="text" data-new-product data-name="price" size="7"> $</td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="button" id="add-new-product-button" class="btn btn-md" value="Save" data-url="{{ new_product_url }}" />
+		<span name="loading" class="hidden"><img src="{{asset('images/loading.gif')}}" width="22" height="22"></span>
+	</div>
+</body>
+</html>

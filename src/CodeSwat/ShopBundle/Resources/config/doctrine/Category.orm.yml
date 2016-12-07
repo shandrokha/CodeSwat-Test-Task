@@ -1,0 +1,21 @@
+CodeSwat\ShopBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: CodeSwat\ShopBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 100
+        description:
+            type: text
+    oneToMany:
+        products:
+            targetEntity: Product
+            mappedBy: category
+    lifecycleCallbacks: {  }
