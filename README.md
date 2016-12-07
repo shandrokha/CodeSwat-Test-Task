@@ -5,6 +5,7 @@ Installation
 --------------
 
 1. Configure the application.
+	- Make the 'var' directory writable
 	- Run 'composer install'
 	- Edit 'app/config/parameters.yml'
 	- Run 'php bin/console doctrine:database:create'
